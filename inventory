@@ -1,0 +1,10 @@
+[routers]
+RT1-Zg ansible_host=
+RT1-Pl ansible_host=
+RT1-St ansible_host=
+
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=classclass  
+ansible_connection=network_cli
+ansible_network_os=cisco.ios

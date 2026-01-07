@@ -10,4 +10,3 @@ backups/
 __pycache__/
 *.pyc
 
-inventory
