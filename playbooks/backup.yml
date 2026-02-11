@@ -1,0 +1,23 @@
+---
+- name: Backup configurations from Cisco devices
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Check if backup directory exists
+      file:
+        path: "./backups/"
+        state: directory
+      delegate_to: localhost
+      run_once: yes
+
+    - name: Collect running configuration
+      cisco.ios.ios_command:
+        commands: show running-config
+      register: config_output
+
+    - name: Save configuration to local file
+      copy:
+        content: "{{ config_output.stdout[0] }}"
+        dest: "./backups/{{ inventory_hostname }}_{{ ansible_date_time.date }}.txt"
+      delegate_to: localhost
