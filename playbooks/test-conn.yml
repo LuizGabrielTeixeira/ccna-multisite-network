@@ -1,0 +1,28 @@
+---
+- name: Cross-device Connectivity Validation
+  hosts: cisco
+  gather_facts: no
+
+  vars:
+    # Lista de IPs críticos que todos devem conseguir pingar
+    critical_targets:
+      - 172.20.7.193  # RT1-Zg
+      - 172.20.7.70   # Server 1 (LibreNMS)
+      - 172.20.7.67   # DHCP-SRV
+
+  tasks:
+    - name: Ping critical targets from Cisco devices
+      cisco.ios.ios_command:
+        commands: "ping {{ item }}"
+      loop: "{{ critical_targets }}"
+      register: ping_results
+
+    - name: Report Ping Status
+      debug:
+        msg: >
+          Device {{ inventory_hostname }} 
+          pinging {{ item.item }}: 
+          {{ '✅ SUCCESS' if 'Success rate is 100 percent' in item.stdout[0] else '❌ FAILED' }}
+      loop: "{{ ping_results.results }}"
+      loop_control:
+        label: "{{ item.item }}"

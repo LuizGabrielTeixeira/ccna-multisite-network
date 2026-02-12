@@ -1,0 +1,17 @@
+---
+- name: Configure SNMP and Syslog on all devices
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Configure SNMP Community
+      cisco.ios.ios_config:
+        lines:
+          - snmp-server community cisco ro
+
+    - name: Configure Syslog Server
+      cisco.ios.ios_config:
+        lines:
+          - logging host 172.20.7.70
+          - logging trap informational
+          - logging on
