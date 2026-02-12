@@ -1,0 +1,24 @@
+---
+- name: Full Mesh Connectivity Validation
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Ping every other device in the inventory
+      cisco.ios.ios_command:
+        commands: "ping {{ hostvars[item].ansible_host }}"
+      # Este loop percorre todos os hosts configurados no teu inventário
+      loop: "{{ groups['cisco'] }}"
+      # Não precisa de pingar a si próprio
+      when: item != inventory_hostname
+      register: full_ping_results
+
+    - name: Report Full Mesh Status
+      debug:
+        msg: >
+          From {{ inventory_hostname }} to {{ item.item }}: 
+          {{ '✅ OK' if 'Success rate is 100 percent' in item.stdout[0] else '❌ FAIL' }}
+      loop: "{{ full_ping_results.results }}"
+      when: item.skipped is not defined
+      loop_control:
+        label: "{{ item.item }}"
