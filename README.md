@@ -99,3 +99,13 @@ The timestamped exports provide historical **configuration evidence**. A lab pho
 The project demonstrates how a foundational multi-site network can evolve into a segmented campus/branch infrastructure with automation. Aligning gateway preferences with STP priorities makes forwarding intent explicit; correlating tunnel endpoints, route selectors, DHCP gateways, and inventory addresses exposes configuration drift. A central lesson is that a configuration export, a test procedure, and a successful runtime result establish different levels of evidence.
 
 Some choices reflect CCNA lab equipment and requirements. [Production Considerations](docs/11-production-considerations.md) describes modern equivalents without presenting them as implemented features.
+
+## Acknowledgements
+
+A special thanks to my colleagues who have shared this journey with me:
+
+- [David Brandão](https://github.com/david-s-brandao)
+- [Bruno Costa](https://github.com/bpcosta1)
+- [Nuno Gonçalves](https://github.com/NunoGoncalves06)
+
+Thank you for the collaboration, knowledge sharing, discussions, and support throughout our academic and technical journey.
