@@ -4,6 +4,10 @@ A Cisco networking laboratory spanning **Zagreb, Pula, and Split**, developed as
 
 This portfolio reconstructs the final configuration from **36 local running-configuration exports for 10 devices**, dated 12 February 2026. Configuration presence is distinguished from operational validation throughout the [evidence matrix](docs/12-evidence-matrix.md).
 
+![](images/2.jpeg)
+
+![](images/1.jpeg)
+
 ## Architecture at a glance
 
 - **Zagreb:** two multilayer switches provide VLAN routing and HSRP gateways, with a two-link EtherChannel and two access switches.
@@ -86,6 +90,9 @@ The timestamped exports provide historical **configuration evidence**. A lab pho
 | [04 — Switching and redundancy](docs/04-switching-and-redundancy.md) | [10 — Validation and testing](docs/10-validation-and-testing.md) |
 | [05 — Routing, VPN, and NAT](docs/05-routing-vpn-and-nat.md) | [11 — Production Considerations](docs/11-production-considerations.md) |
 | [06 — Wireless infrastructure](docs/06-wireless-infrastructure.md) | [12 — Evidence matrix](docs/12-evidence-matrix.md) |
+
+
+![](images/3.jpeg)
 
 ## Engineering outcomes
 
