@@ -11,11 +11,11 @@
 
 Requirements come from the project brief; assignment files are not present. Configuration precedence is newest device export → ENSA → SRWE → ITN. Every latest export was read in full. Older exports were compared selectively for evolution, not substituted for missing final features.
 
-**Availability:** 36 text exports are present locally under `playbooks/backups/`, but existing [.gitignore](../.gitignore) rules (`backups/`, `*.txt`) exclude them from Git tracking. Links resolve in the analyzed workspace; they may not resolve in a published clone until the owner intentionally includes an evidence package. [acl.yml](../playbooks/acl.yml) and [save.yml](../playbooks/save.yml) were locally untracked at analysis time. No operational file or ignore rule was changed for this documentation.
+**Availability:** all 31 retained text exports under `playbooks/backups/` are included in version control. Scoped exceptions in [.gitignore](../.gitignore) allow this laboratory evidence while preserving the general `backups/` and `*.txt` ignore rules elsewhere. The playbooks and supporting images are also versioned, so the linked evidence accompanies a repository clone. No operational configuration or playbook contents were changed for this publication update.
 
 ## Supporting images
 
-The untracked `images/` directory appeared during the documentation pass. All three supplied images were inspected and preserved; they supplement rather than supersede the newest configuration exports.
+All three supplied images are included in version control. They were inspected and preserved; they supplement rather than supersede the newest configuration exports.
 
 | Image | Evidence supplied | Limit |
 |---|---|---|
@@ -44,19 +44,21 @@ Source IDs used below link to the exact newest file by filename timestamp. Inter
 
 All snapshots are dated **2026-02-12**. Each listed time maps to the exact path `playbooks/backups/<alias>_2026-02-12_<time>.txt` (hyphens separate hours/minutes/seconds). The latest entry is bold and linked in the source table above.
 
+Repository cleanup removed five exports with filename time `18-39-24`: DHCP-SRV, RT1-Zg, RT1-Pl, RT1-St and SW1-Pl. The retained count decreased from 36 to **31**. No latest export was removed, so all ten primary sources, their line references and the reconstructed final architecture are unchanged. The Pula evolution comparison now uses the retained `18-40-11` export. The catalog below lists only files that remain in the repository.
+
 | Device alias | Count | All filename times, oldest → newest |
 |---|---|---|
-| DHCP-SRV | 3 | 18-39-24, 18-40-11, **20-20-50** |
+| DHCP-SRV | 2 | 18-40-11, **20-20-50** |
 | MLS1-Zg | 6 | 18-13-56, 18-22-22, 18-26-53, 18-39-25, 18-40-12, **20-20-51** |
 | MLS2-Zg | 6 | 18-13-56, 18-22-22, 18-26-53, 18-39-25, 18-40-12, **20-20-51** |
-| RT1-Zg | 3 | 18-39-24, 18-40-11, **20-20-50** |
-| RT1-Pl | 3 | 18-39-24, 18-40-11, **20-20-50** |
-| RT1-St | 3 | 18-39-24, 18-40-11, **20-20-50** |
+| RT1-Zg | 2 | 18-40-11, **20-20-50** |
+| RT1-Pl | 2 | 18-40-11, **20-20-50** |
+| RT1-St | 2 | 18-40-11, **20-20-50** |
 | SW1-Zg | 3 | 18-39-25, 18-40-12, **20-20-51** |
 | SW2-Zg | 3 | 18-39-25, 18-40-12, **20-20-51** |
-| SW1-Pl | 3 | 18-39-24, 18-40-11, **20-20-50** |
+| SW1-Pl | 2 | 18-40-11, **20-20-50** |
 | SW1-St | 3 | 18-39-25, 18-40-12, **20-20-51** |
-| **Total** | **36** | Ten device aliases; final collection spans two filename seconds |
+| **Total** | **31** | Ten device aliases; final collection spans two filename seconds |
 
 ## Network feature evidence
 
@@ -111,7 +113,7 @@ Source IDs reference the exact paths and line ranges above. Negative findings re
 |---|---|---|---|---|
 | Inventory grouping | Ten Cisco aliases | [inventory](../inventory) | Verified | routers + switches under cisco; addresses match final interfaces |
 | SSH/enable connection model | Controller and cisco group | [ansible.cfg](../ansible.cfg), [all.yml](../group_vars/all.yml), [ssh-config](../ssh-config) | Verified | Authored settings; effective transport/version not tested |
-| Running-config backup | cisco group | [backup.yml](../playbooks/backup.yml), 36 local exports | Verified | Collection workflow and historical artifacts; execution attribution not proven |
+| Running-config backup | cisco group | [backup.yml](../playbooks/backup.yml), 31 versioned exports | Verified | Collection workflow and historical artifacts; execution attribution not proven |
 | Configuration save | cisco group | [save.yml](../playbooks/save.yml), acl.yml; latest NVRAM headers | Verified | Authored workflow plus recorded historical save timestamps, no play recap |
 | Critical IPv4 endpoint test | cisco group | test-conn.yml: `.193`, `.70`, `.67` | Verified | Test code only; no retained outcomes/assertions |
 | Inventory-wide IPv4 test | cisco group | [full-conn.yml](../playbooks/full-conn.yml) | Verified | 90 directed invocations for ten hosts; no retained results |
@@ -126,4 +128,4 @@ Source IDs reference the exact paths and line ranges above. Negative findings re
 
 Architecture diagrams are grounded in interface addresses/descriptions, trunk configuration, routing selection and crypto relationships. Inferred physical links and unavailable endpoint configuration are labeled in [02](02-final-architecture.md). The snapshot inventory and this matrix anchor the README's technology claims. The [review register](10-validation-and-testing.md#manual-review-register) records discrepancies and recommends additional state evidence.
 
-For a published portfolio, prioritize an intentional backup evidence package, retained connectivity results, OSPF/IPsec/HSRP state captures, exact cable mapping, and missing wireless/telephony/monitoring artifacts. Preserve the distinction between assignment intent, authored automation, configured final state and demonstrated behavior.
+The published backup evidence package establishes the configuration baseline. Additional priorities are retained connectivity results, OSPF/IPsec/HSRP state captures, exact cable mapping, and missing wireless/telephony/monitoring artifacts. Preserve the distinction between assignment intent, authored automation, configured final state and demonstrated behavior.

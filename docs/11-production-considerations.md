@@ -16,7 +16,7 @@ The configurations reflect CCNA educational requirements and available laborator
 | Static Ethernet exit-only defaults | Explicit, validated upstream next-hop design appropriate to the carrier/underlay |
 | Broad PAT and no evidenced guest/voice interface policy | Explicit least-privilege inter-segment/edge policy with positive and negative tests |
 | HTTP/HTTPS management and published TCP ports to the DHCP router | Deliberate management-plane exposure, encrypted management and scoped access paths |
-| Console-only test results and locally ignored backups | Versioned evidence manifests, retained results, restoration procedures and an intentional publication/retention policy |
+| Console-only test results; versioned lab exports without full execution logs | Retained test results, reproducible collection metadata, restoration procedures and an intentional publication/retention policy |
 | Single-address monitoring references | Monitoring ownership, alerting, telemetry integrity and time-synchronization validation |
 
 IPv6 security and routing deserve independent verification rather than inheriting assumptions from IPv4. Management ACL ranges should be compared with the actual subnet plan, particularly the broad branch `/24` declarations.

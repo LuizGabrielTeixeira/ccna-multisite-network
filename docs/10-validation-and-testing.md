@@ -62,7 +62,7 @@ Stage 1 required ping/traceroute and Wireshark IPv4/IPv6 ICMP analysis, but no e
 | R16 | No Zagreb VLAN 5/6/10 DHCPv4 pools despite helpers on those SVIs | Helpers do not prove those segments receive leases; verify static versus dynamic infrastructure addressing |
 | R17 | No interface tracking in HSRP configuration | Upstream-path-aware failover is not evidenced; obtain failover behavior under defined scenarios |
 | R18 | DHCP domain spelling differs from management domain; RTVi alias shares management VIP `.62` | Treat naming/service identity as unresolved; do not infer a telephony server from host aliases |
-| R19 | Exports ignored by Git; ACL/save playbooks initially untracked | Local analysis evidence may be missing in published clones; decide which artifacts to publish |
+| R19 | Initial evidence-publication gap resolved: 31 retained exports are versioned with scoped ignore exceptions; playbooks and images are versioned | Five earlier snapshots were removed, but all ten final-state sources remain; links/catalog checked against retained files |
 | R20 | Reference drawing shows branch phones on Fa0/16; final branch switches shut down Fa0/16 in VLAN 99 and routers lack VLAN 40 gateways | Treat drawing as intent/context, not proof of final branch voice implementation |
 
 Sources for each observation are indexed in [12](12-evidence-matrix.md); routing specifics are in [05](05-routing-vpn-and-nat.md), access policy in [07](07-network-security.md), and services in [08](08-network-services-and-monitoring.md). No discrepancy was silently corrected.

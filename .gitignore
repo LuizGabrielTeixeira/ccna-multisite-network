@@ -7,6 +7,9 @@
 backups/
 *.txt
 
+# Publish the CCNA laboratory configuration evidence.
+!/playbooks/backups/
+!/playbooks/backups/*.txt
+
 __pycache__/
 *.pyc
-

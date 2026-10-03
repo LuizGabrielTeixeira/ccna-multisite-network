@@ -2,7 +2,7 @@
 
 A Cisco networking laboratory spanning **Zagreb, Pula, and Split**, developed as one evolving infrastructure across CCNA ITN, SRWE, and ENSA. The project combines subnet planning, redundant campus gateways, branch routing, protected inter-site tunnels, network services, and Ansible operations.
 
-This portfolio reconstructs the final configuration from **36 local running-configuration exports for 10 devices**, dated 12 February 2026. Configuration presence is distinguished from operational validation throughout the [evidence matrix](docs/12-evidence-matrix.md).
+This portfolio reconstructs the final configuration from **31 versioned running-configuration exports for 10 devices**, dated 12 February 2026. Configuration presence is distinguished from operational validation throughout the [evidence matrix](docs/12-evidence-matrix.md).
 
 ![](images/2.jpeg)
 
@@ -75,10 +75,10 @@ The timestamped exports provide historical **configuration evidence**. A lab pho
     ├── save.yml
     ├── config-monitor.yml
     ├── acl.yml
-    └── backups/              # Local timestamped device exports
+    └── backups/              # Versioned timestamped lab device exports
 ```
 
-**Evidence availability:** existing `.gitignore` rules exclude `backups/` and `*.txt`; the analyzed backups are local, untracked evidence and may not accompany a GitHub clone. `acl.yml`, `save.yml` and the images were also untracked when analyzed. Paths are preserved; the [snapshot catalog](docs/12-evidence-matrix.md#snapshot-catalog) identifies every local export and the selected final state. [Supporting images](docs/12-evidence-matrix.md#supporting-images) document the lab context separately from final configuration.
+**Evidence availability:** the laboratory exports in `playbooks/backups/` are included in version control through scoped `.gitignore` exceptions, alongside the playbooks and supporting images. The [snapshot catalog](docs/12-evidence-matrix.md#snapshot-catalog) identifies all 31 retained exports and the selected final state. Five earlier snapshots were removed during repository cleanup; all ten newest configurations remain available. [Supporting images](docs/12-evidence-matrix.md#supporting-images) document the lab context separately from final configuration.
 
 ## Detailed documentation
 
