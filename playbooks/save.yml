@@ -1,0 +1,14 @@
+---
+- name: Save running configuration to startup-config
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Execute write memory
+      cisco.ios.ios_command:
+        commands: write memory
+      register: save_result
+
+    - name: Show output for confirmation
+      debug:
+        msg: "{{ inventory_hostname }} - {{ save_result.stdout[0] }}"

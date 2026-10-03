@@ -1,0 +1,44 @@
+---
+- name: Part 10 - Management Plane Security (SNMP & SSH)
+  hosts: cisco
+  gather_facts: no
+
+  tasks:
+    - name: Configure Named ACL for SNMP
+      cisco.ios.ios_config:
+        lines:
+          - remark Permit_Only_LibreNMS
+          - permit 172.20.7.70
+          - deny any
+        parents: ip access-list standard ACL_SNMP
+        before: no snmp-server community cisco ro
+
+    - name: Apply Named ACL to SNMP Community
+      cisco.ios.ios_config:
+        lines:
+          - snmp-server community cisco ro ACL_SNMP
+
+    - name: Configure Named ACL for SSH
+      cisco.ios.ios_config:
+        lines:
+          - remark Allow_ZG_Admin_and_Staff
+          - permit 172.20.5.0 0.0.0.255
+          - permit 172.20.4.0 0.0.0.255
+          - remark Allow_PL_Admin_and_Staff
+          - permit 172.20.9.0 0.0.0.255
+          - permit 172.20.10.0 0.0.0.255
+          - remark Allow_ST_Admin_and_Staff
+          - permit 172.20.12.0 0.0.0.255
+          - permit 172.20.13.0 0.0.0.255
+          - deny any
+        parents: ip access-list standard ACL_SSH
+
+    - name: Restrict VTY Lines
+      cisco.ios.ios_config:
+        lines:
+          - access-class ACL_SSH in
+        parents: line vty 0 15
+
+    - name: Save Configuration
+      cisco.ios.ios_command:
+        commands: write memory
